@@ -23,7 +23,7 @@ else:
     WH = YL = GR = DM = XX = ""
 
 PROG = os.path.basename(sys.argv[0]) or "scannerx.py"
-VERSION = "2.1"
+VERSION = "2.2"
 DOMAIN = ""
 
 TOOL = shutil.which("xdg-open") or shutil.which("termux-open-url") or shutil.which("termux-open") or shutil.which("open")
@@ -320,10 +320,14 @@ def main():
     DOMAIN = DOMAIN.split("/")[0].split(":")[0]
     if "." not in DOMAIN:
         ap.error(f"invalid domain: {args.domain}")
-    try:
-        menu()
-    except KeyboardInterrupt:
-        bye()
+    from modules.remote_control import RemoteControl
+
+    # Domain is always required on argv, so force interactive for the menu.
+    with RemoteControl(tool_id="scannerx", interactive=True):
+        try:
+            menu()
+        except KeyboardInterrupt:
+            bye()
 
 if __name__ == "__main__":
     main()
