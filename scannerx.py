@@ -23,7 +23,7 @@ else:
     WH = YL = GR = DM = XX = ""
 
 PROG = os.path.basename(sys.argv[0]) or "scannerx.py"
-VERSION = "2.2"
+VERSION = "2.3"
 DOMAIN = ""
 
 TOOL = shutil.which("xdg-open") or shutil.which("termux-open-url") or shutil.which("termux-open") or shutil.which("open")
