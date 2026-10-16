@@ -73,7 +73,7 @@
 $ scanx example.com
 
   S C A N N E R X
-  osint recon launcher · v2.3
+  osint recon launcher · v2.4
 
   ──────────────────────────────────────────────────────────
   target      example.com
